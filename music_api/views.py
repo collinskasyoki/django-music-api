@@ -25,3 +25,12 @@ class AlbumViewSet(APIView):
         serializer = AlbumSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+class SongViewSet(APIView):
+
+    def get(self, request, *args, **kwargs):
+        # Filter options?
+
+        queryset = Song.objects.all()
+        serializer = SongSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

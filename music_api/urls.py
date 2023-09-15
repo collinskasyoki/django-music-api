@@ -9,5 +9,7 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/v1/artists/', ArtistViewSet.as_view(), name='artists-list'),
 
-    path('api/v1/albums/', AlbumViewSet.as_view(), name='albums-list')
+    path('api/v1/albums/', AlbumViewSet.as_view(), name='albums-list'),
+
+    path('api/v1/songs/', SongViewSet.as_view(), name='songs-list')
 ]
