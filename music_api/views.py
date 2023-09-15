@@ -2,6 +2,8 @@ from rest_framework import status, generics
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 from .serializers import ArtistSerializer, AlbumSerializer, SongSerializer
 
@@ -17,6 +19,10 @@ class Pagination(PageNumberPagination):
 
 class ArtistViewSet(APIView):
 
+    @swagger_auto_schema(
+            operation_summary="List all artists",
+            responses={200: openapi.Response("List of artists", ArtistSerializer(many=True))}
+    )
     def get(self, request, *args, **kwargs):
         # Filter options?
 
@@ -27,6 +33,10 @@ class ArtistViewSet(APIView):
 
 class AlbumViewSet(APIView):
 
+    @swagger_auto_schema(
+            operation_summary="List all albums",
+            responses={200: openapi.Response("List of albums", AlbumSerializer(many=True))}
+    )
     def get(self, request, *args, **kwargs):
         # Filter options?
 
@@ -39,6 +49,10 @@ class SongViewSet(generics.ListAPIView):
 
     pagination_class = Pagination
 
+    @swagger_auto_schema(
+            operation_summary="List songs",
+            responses={200: openapi.Response("List of songs", SongSerializer(many=True))}
+    )
     def get(self, request, *args, **kwargs):
         # Filter options?
 
