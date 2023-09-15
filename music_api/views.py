@@ -14,3 +14,14 @@ class ArtistViewSet(APIView):
         queryset = Artist.objects.all()
         serializer = ArtistSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class AlbumViewSet(APIView):
+
+    def get(self, request, *args, **kwargs):
+        # Filter options?
+
+        queryset = Album.objects.all()
+        serializer = AlbumSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
