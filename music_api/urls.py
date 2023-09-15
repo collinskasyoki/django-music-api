@@ -4,7 +4,9 @@ URL configuration for music_api project.
 # from django.contrib import admin
 from django.urls import path, re_path, include
 
-from .views import ArtistViewSet, AlbumViewSet, SongViewSet
+from music_api.views.artists import ArtistListSet
+from music_api.views.albums import AlbumListSet
+from music_api.views.songs import SongListSet
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -26,11 +28,11 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('api/v1/artists/', ArtistViewSet.as_view(), name='artists-list'),
+    path('api/v1/artists/', ArtistListSet.as_view(), name='artists-list'),
 
-    path('api/v1/albums/', AlbumViewSet.as_view(), name='albums-list'),
+    path('api/v1/albums/', AlbumListSet.as_view(), name='albums-list'),
 
-    path('api/v1/songs/', SongViewSet.as_view(), name='songs-list'),
+    path('api/v1/songs/', SongListSet.as_view(), name='songs-list'),
 
     re_path(
         r'^swagger(?P<format>\.json|\.yaml)$',
