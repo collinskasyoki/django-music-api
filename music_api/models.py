@@ -1,19 +1,23 @@
 from django.db import models
 
 class Artist(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=300, unique=True)
 
 
 class Album(models.Model):
-    name = models.CharField(max_length=200)
-    albumartist = models.ForeignKey(Artist, on_delete=models.RESTRICT)
+    artist = models.ForeignKey(Artist, on_delete=models.RESTRICT)
+    title = models.CharField(max_length=200)
+    length = models.CharField(max_length=50, blank=True, null=True)
 
 
 class Song(models.Model):
     title = models.CharField(max_length=300)
-    album = models.ForeignKey(Album, on_delete=models.RESTRICT)
+    album = models.ForeignKey(Album, on_delete=models.RESTRICT, blank=True, null=True)
+    album_name = models.CharField(max_length=300, db_column='album')
     artist = models.ForeignKey(Artist, on_delete=models.RESTRICT)
-    length = models.IntegerField()
-    year = models.SmallIntegerField()
+    artist_name = models.CharField(max_length=300, db_column='artist_name')
     genre = models.CharField(max_length=100)
+    year = models.SmallIntegerField()
+    length = models.IntegerField()
+    bitrate = models.IntegerField()
     lyrics = models.TextField(null=True)
