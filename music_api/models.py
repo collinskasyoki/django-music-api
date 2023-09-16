@@ -12,7 +12,7 @@ class Album(models.Model):
 
 class Song(models.Model):
     title = models.CharField(max_length=300)
-    album = models.ForeignKey(Album, on_delete=models.RESTRICT, blank=True, null=True)
+    album = models.ForeignKey(Album, on_delete=models.RESTRICT, blank=True, null=True, related_name='songs')
     album_name = models.CharField(max_length=300, db_column='album')
     artist = models.ForeignKey(Artist, on_delete=models.RESTRICT)
     artist_name = models.CharField(max_length=300, db_column='artist_name')

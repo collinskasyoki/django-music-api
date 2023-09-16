@@ -6,6 +6,7 @@ from django.urls import path, re_path, include
 
 from music_api.views.artists import ArtistListSet
 from music_api.views.albums import AlbumListSet
+from music_api.views.albums import AlbumDetail, AlbumDetailSongs
 from music_api.views.songs import SongListSet
 
 from rest_framework import permissions
@@ -31,6 +32,8 @@ urlpatterns = [
     path('api/v1/artists/', ArtistListSet.as_view(), name='artists-list'),
 
     path('api/v1/albums/', AlbumListSet.as_view(), name='albums-list'),
+    path('api/v1/albums/<int:id>/', AlbumDetail.as_view(), name='albums-detail'),
+    path('api/v1/albums/<int:id>/songs/', AlbumDetailSongs.as_view(), name='albums-songs-detail'),
 
     path('api/v1/songs/', SongListSet.as_view(), name='songs-list'),
 
