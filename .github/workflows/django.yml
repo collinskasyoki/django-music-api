@@ -16,33 +16,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
-    - name: Install git-crypt
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y git-crypt
-        
-    - name: Setup git-crypt key
-      run: |
-        # Create dir for the keyfile
-        mkdir -p .git-crypt
-        touch .git-crypt/keyfile
-        
-        # Write the encryption key of file
-        echo ${{ secrets.GIT_CRYPT_KEY }} > .git-crypt/keyfile
-        
-        # Unlock git-crypt using keyfile
-        git-crypt unlock .git-crypt/keyfile
-      env:
-        # Set the environment var GIT_CRYPT_KEY_PATH 
-        GIT_CRYPT_KEY_PATH: .git-crypt/keyfile
-
-    - name: Decrypt .env file
-      run: |
-        # Unlock git-crypt
-        git-crypt unlock "$GIT_CRYPT_KEY_PATH"
-      env:
-        GIT_CRYPT_KEY_PATH: .git-crypt/keyfile
       
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -56,5 +29,8 @@ jobs:
         pipenv install
         
     - name: Run Tests
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DEBUG: ${{ secrets.DEBUG }}
       run: |
         pipenv run python manage.py test
