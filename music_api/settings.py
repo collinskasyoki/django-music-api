@@ -5,10 +5,14 @@ Django settings for music_api project.
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
-from decouple import Config
+#from decouple import Config
 
-config = Config('.env')
+if os.path.isfile('.env'):
+    load_dotenv('.env')
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -1,3 +1,4 @@
 *.bkp
 __pycache__*
+.env
 
