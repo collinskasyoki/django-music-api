@@ -21,15 +21,16 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y git-crypt
-
-        cat .git-crypt/keyfile
         
         # Create dir for the keyfile
         mkdir -p .git-crypt
+        touch .git-crypt/keyfile
 
         # Write the encryption key ot file
         echo ${{ secrets.GIT_CRYPT_KEY }}" > .git-crypt/keyfile
 
+        echo .git-crypt/keyfile
+        
         # Unlock git-crypt using keyfile
         git-crypt unlock .git-crypt/keyfile
       env:
