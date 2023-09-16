@@ -21,22 +21,21 @@ class Pagination(PageNumberPagination):
 class SongListSet(generics.ListAPIView):
 
     pagination_class = Pagination
+    serializer_class = SongSerializer
 
     @swagger_auto_schema(
             operation_summary="List songs",
             responses={200: openapi.Response("List of songs", SongSerializer(many=True))}
     )
-    def get(self, request, *args, **kwargs):
-        # Filter options?
+    def get_queryset(self):
 
         queryset = Song.objects.all().order_by('artist', 'album', 'id')
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = SongSerializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+        genre_filter = self.request.query_params.get('genre')
 
-        serializer = SongSerializer(queryset, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if genre_filter:
+            queryset = queryset.filter(genre=genre_filter)
+
+        return queryset
 
 
 class SongDetailView(APIView):
