@@ -7,7 +7,7 @@ from django.urls import path, re_path, include
 from music_api.views.artists import ArtistListSet
 from music_api.views.albums import AlbumListSet
 from music_api.views.albums import AlbumDetail, AlbumDetailSongs
-from music_api.views.songs import SongListSet
+from music_api.views.songs import SongListSet, SongDetailView
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -36,6 +36,7 @@ urlpatterns = [
     path('api/v1/albums/<int:id>/songs/', AlbumDetailSongs.as_view(), name='albums-songs-detail'),
 
     path('api/v1/songs/', SongListSet.as_view(), name='songs-list'),
+    path('api/v1/songs/<int:id>', SongDetailView.as_view(), name='songs-detail'),
 
     re_path(
         r'^swagger(?P<format>\.json|\.yaml)$',
