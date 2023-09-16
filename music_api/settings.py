@@ -7,20 +7,15 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-#from decouple import Config
-
 if os.path.isfile('.env'):
     load_dotenv('.env')
 
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG') == 'True'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
-
-DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
