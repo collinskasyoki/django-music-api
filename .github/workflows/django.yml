@@ -17,8 +17,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up git-crypt
+    - name: Install git-crypt
       run: |
+        sudo apt-get update
+        sudo apt-get install -y git-crypt
+        
         # Create dir for the keyfile
         mkdir -p .git-crypt
 
