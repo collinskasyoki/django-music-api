@@ -35,7 +35,7 @@ urlpatterns = [
     path('api/v1/artists/', ArtistListSet.as_view(), name='artists-list'),
     path('api/v1/artists/<int:id>/', ArtistDetail.as_view(), name='artists-detail'),
     path('api/v1/artists/<int:id>/albums/', ArtistAlbumDetail.as_view(), name='artists-albums-detail'),
-    path('api/v1/artists/<int:id>/albums/songs/', ArtistAlbumSongDetail.as_view(), name='artists-albums-detail'),
+    path('api/v1/artists/<int:id>/albums/songs/', ArtistAlbumSongDetail.as_view(), name='artists-albums-songs-detail'),
 
     path('api/v1/albums/', AlbumListSet.as_view(), name='albums-list'),
     path('api/v1/albums/<int:id>/', AlbumDetail.as_view(), name='albums-detail'),
