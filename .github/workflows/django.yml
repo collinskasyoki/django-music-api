@@ -37,6 +37,7 @@ jobs:
     - name: Decrypt .env file
       run: |
         # Unlock git-crypt
+        which git-crypt
         git-crypt unlock "$GIT_CRYPT_KEY_PATH"
       env:
         GIT_CRYPT_KEY_PATH: .git-crypt/keyfile
