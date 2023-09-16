@@ -21,6 +21,13 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y git-crypt
+
+        if command -v git-crypt &> /dev/null
+        then
+          echo "git-crypt is installed"
+        else
+          echo "git-crypt is not installed"
+        fi
         
         # Create dir for the keyfile
         mkdir -p .git-crypt
