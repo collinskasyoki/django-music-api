@@ -27,22 +27,19 @@ jobs:
         # Create dir for the keyfile
         mkdir -p .git-crypt
         touch .git-crypt/keyfile
-        echo `ls -alh .git-crypt/keyfile`
+        
         # Write the encryption key ot file
         echo ${{ secrets.GIT_CRYPT_KEY }}" > .git-crypt/keyfile
-
-        echo .git-crypt/keyfile
         
         # Unlock git-crypt using keyfile
         git-crypt unlock .git-crypt/keyfile
       env:
-        # Set the environment var GIT_CRYPT_KEY_PATH
+        # Set the environment var GIT_CRYPT_KEY_PATH 
         GIT_CRYPT_KEY_PATH: .git-crypt/keyfile
 
     - name: Decrypt .env file
       run: |
         # Unlock git-crypt
-        which git-crypt
         git-crypt unlock "$GIT_CRYPT_KEY_PATH"
       env:
         GIT_CRYPT_KEY_PATH: .git-crypt/keyfile
