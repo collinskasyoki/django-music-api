@@ -25,6 +25,14 @@ class SongListSet(generics.ListAPIView):
 
     @swagger_auto_schema(
             operation_summary="List songs",
+            manual_parameters=[
+                openapi.Parameter(
+                    name='genre',
+                    in_=openapi.IN_QUERY,
+                    type=openapi.TYPE_STRING,
+                    description='Filter by genre name',
+                )
+            ],
             responses={200: openapi.Response("List of songs", SongSerializer(many=True))}
     )
     def get_queryset(self):
