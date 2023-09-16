@@ -7,6 +7,7 @@ class Artist(models.Model):
 class Album(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.RESTRICT, related_name='albums')
     title = models.CharField(max_length=200)
+    genre = models.CharField(max_length=100, blank=True, null=True)
     length = models.CharField(max_length=50, blank=True, null=True)
 
 
