@@ -22,10 +22,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y git-crypt
         
+    - name: Setup git-crypt key
+      run: |
         # Create dir for the keyfile
         mkdir -p .git-crypt
         touch .git-crypt/keyfile
-
+        echo `ls -alh .git-crypt/keyfile`
         # Write the encryption key ot file
         echo ${{ secrets.GIT_CRYPT_KEY }}" > .git-crypt/keyfile
 
