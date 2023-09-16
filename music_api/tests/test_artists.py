@@ -8,9 +8,9 @@ import json
 from music_api.models import Song, Artist, Album
 
 """
-Test class for Genres
+Test class for Artists
 """
-class TestGenre(TestCase):
+class TestArtists(TestCase):
     def setUp(self):
         test_artist1 = Artist.objects.create(
             id = 1,
