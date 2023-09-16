@@ -4,7 +4,7 @@ URL configuration for music_api project.
 # from django.contrib import admin
 from django.urls import path, re_path, include
 
-from music_api.views.artists import ArtistListSet
+from music_api.views.artists import ArtistListSet, ArtistDetail, ArtistAlbumDetail, ArtistAlbumSongDetail
 from music_api.views.albums import AlbumListSet
 from music_api.views.albums import AlbumDetail, AlbumDetailSongs
 from music_api.views.songs import SongListSet, SongDetailView
@@ -30,6 +30,9 @@ schema_view = get_schema_view(
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/v1/artists/', ArtistListSet.as_view(), name='artists-list'),
+    path('api/v1/artists/<int:id>/', ArtistDetail.as_view(), name='artists-detail'),
+    path('api/v1/artists/<int:id>/albums/', ArtistAlbumDetail.as_view(), name='artists-albums-detail'),
+    path('api/v1/artists/<int:id>/albums/songs/', ArtistAlbumSongDetail.as_view(), name='artists-albums-detail'),
 
     path('api/v1/albums/', AlbumListSet.as_view(), name='albums-list'),
     path('api/v1/albums/<int:id>/', AlbumDetail.as_view(), name='albums-detail'),

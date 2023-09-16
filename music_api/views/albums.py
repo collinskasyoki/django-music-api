@@ -52,6 +52,5 @@ class AlbumDetailSongs(APIView):
         Retrieve album songs by ID
         """
         album = get_object_or_404(Album, pk=kwargs["id"])
-        print(album.songs.all())
         serializer = AlbumSongsSerializer(album)
         return Response(serializer.data, status=status.HTTP_200_OK)
