@@ -7,8 +7,8 @@ from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
-from music_api.serializers import ArtistSerializer, AlbumSerializer, SongSerializer
-from music_api.models import Artist, Album, Song
+from music_api.serializers import SongSerializer
+from music_api.models import Song
 
 
 class Pagination(PageNumberPagination):

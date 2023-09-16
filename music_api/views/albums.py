@@ -1,7 +1,5 @@
 from django.shortcuts import get_object_or_404
 
-from rest_framework import status, generics
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema
@@ -9,7 +7,7 @@ from drf_yasg import openapi
 
 from music_api.serializers import AlbumSerializer, AlbumSongsSerializer
 
-from music_api.models import Artist, Album, Song
+from music_api.models import Album
 
 
 class AlbumListSet(APIView):

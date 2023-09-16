@@ -8,7 +8,7 @@ from drf_yasg import openapi
 
 from music_api.serializers import ArtistSerializer, ArtistAlbumsSerializer, ArtistAlbumsSongsSerializer
 
-from music_api.models import Artist, Album, Song
+from music_api.models import Artist
 
 
 class ArtistListSet(APIView):
