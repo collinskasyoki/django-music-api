@@ -111,20 +111,6 @@ class TestAlbums(TestCase):
         self.assertEqual(response2.status_code, status.HTTP_404_NOT_FOUND)
         self.assertEqual(album2['detail'], 'Not found.')
 
-    # """
-    # Test fetch artist's album
-    # """
-    # def test_fetch_artist_album(self):
-    #     test_url = reverse(
-    #         'artists-albums-detail',
-    #         kwargs = {'id': 1},
-    #     )
-
-    #     response = self.client.get(test_url)
-    #     artist_albums = json.loads(response.content)
-
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(len(artist_albums['albums']), 1)
 
     """
     Test fetch album's songs
