@@ -127,3 +127,15 @@ class TestAlbums(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(albums_songs['title'], 'Album 1')
         self.assertEqual(len(albums_songs['songs']), 2)
+
+
+    """
+    Test fetch albums by genre
+    """
+    def test_fetch_albums_by_genre(self):
+        test_url = reverse('albums-list') + '?genre=Genre 1'
+        response = self.client.get(test_url)
+        albums = json.loads(response.content)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(albums), 2)
