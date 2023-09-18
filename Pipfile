@@ -10,6 +10,7 @@ django-filter = "*"
 python-dotenv = "*"
 drf-yasg = "*"
 gunicorn = "*"
+whitenoise = "*"
 djoser = "*"
 djangorestframework_simplejwt = ">=5.2"
 
