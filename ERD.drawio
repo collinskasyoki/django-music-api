@@ -1,0 +1,37 @@
+<mxfile host="Electron" modified="2023-09-15T16:23:56.901Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.7.5 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="0WRvYWE6NIuKSLYd5Qb-" version="21.7.5" type="device">
+  <diagram name="Page-1" id="ZN8mXsyS5L2r3een8IQl">
+    <mxGraphModel dx="607" dy="385" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.006;entryY=0.388;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERoneToMany;endFill=0;startSize=12;endSize=12;startArrow=ERone;startFill=0;" parent="1" source="QjrjRDRaY8vNSI7hmlfQ-5" target="QjrjRDRaY8vNSI7hmlfQ-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-5" value="Artist" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="130" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-6" value="+Name" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="QjrjRDRaY8vNSI7hmlfQ-5" vertex="1">
+          <mxGeometry y="50" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-7" value="Song" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="370" y="300" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-8" value="+Title&lt;br&gt;+ Album Name&lt;br&gt;+ Artist Name&lt;br&gt;+ Length (ms)&lt;br&gt;+ Bitrate&lt;br&gt;+ Year&lt;br&gt;+ Genre&lt;br&gt;+ Lyrics" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="QjrjRDRaY8vNSI7hmlfQ-7" vertex="1">
+          <mxGeometry y="50" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;endArrow=ERoneToMany;endFill=0;startArrow=ERone;startFill=0;endSize=12;startSize=12;" parent="1" source="QjrjRDRaY8vNSI7hmlfQ-13" target="QjrjRDRaY8vNSI7hmlfQ-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-13" value="Album" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="70" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-14" value="+ Name&lt;br&gt;+ Artist&lt;br&gt;+ Length" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="QjrjRDRaY8vNSI7hmlfQ-13" vertex="1">
+          <mxGeometry y="50" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QjrjRDRaY8vNSI7hmlfQ-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endArrow=ERoneToMany;endFill=0;startSize=12;endSize=12;startArrow=ERone;startFill=0;" parent="1" source="QjrjRDRaY8vNSI7hmlfQ-6" target="QjrjRDRaY8vNSI7hmlfQ-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
